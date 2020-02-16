@@ -1,0 +1,23 @@
+{
+  "name": "nozomi",
+  "version": "1.0.0",
+  "description": "BGM Extractor for Princess Connect: Redive",
+  "main": "index.js",
+  "author": "Haku",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rollup --config",
+    "start": "rollup --config --watch"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "n-readlines": "^1.0.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "rollup": "^1.31.1"
+  }
+}
