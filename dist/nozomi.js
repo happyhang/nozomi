@@ -2264,7 +2264,7 @@ const path = require('path');
 const fs = require('fs');
 
 const gameDataPath = `${process.env.APPDATA}/../LocalLow/Cygames/PrincessConnectReDive/`;
-const soundManifest = path.join(gameDataPath, 'manifest/d59580e97f71d623e7f8f4cf0d8516bffdcf06cb');
+const soundManifest = path.join(gameDataPath, 'manifest/9d235f4238ee79a99ec0b8dc76087427e3abb636');
 const bgmPath = path.join(gameDataPath, 'b');
 const outputPath = (process.argv.length && process.argv[2]) || '';
 
@@ -2315,6 +2315,11 @@ console.log(source.cyan(`Found ${bgmFileList.length} BGMs.`));
 bgmFileList.forEach(({ fileName, fileNameHashed }) => {
   const pathToCopy = path.join(bgmPath, fileNameHashed);
   const outputFile = path.join(outputPath, fileName);
+
+  if (!fs.existsSync(pathToCopy)) {
+    console.log(source.yellowBright(`File '${bgmPath}' not found. (${fileName})`));
+    return;
+  }
 
   if (fs.existsSync(outputFile)) {
     console.log(`${fileName} already exists. Skipping...`);
